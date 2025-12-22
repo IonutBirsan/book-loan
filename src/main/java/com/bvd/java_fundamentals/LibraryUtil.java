@@ -1,30 +1,82 @@
 package com.bvd.java_fundamentals;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.time.LocalDate;
+import java.util.*;
 
 /*
  * Implement the methods below so that the requirements are met.
  */
+
 public class LibraryUtil {
 
     // private constructor to prevent instantiation
     private LibraryUtil() {
     }
 
-    // load resource file from resources folder
-    static List<String> loadResourceFile(final String fileName) {
-        // Write your code here and replace the return statement
-        return Collections.emptyList();
+
+    static List<String> loadResourceFile() throws IOException {
+
+        // filename ??
+
+        InputStream is = LibraryUtil.class
+                .getClassLoader()
+                .getResourceAsStream("loans/libraryLoans.csv");
+
+        if (is == null) {
+            throw new RuntimeException("CSV not found");
+        }
+
+        List<String> lines = new ArrayList<>();
+
+        try (BufferedReader reader =
+                     new BufferedReader(new InputStreamReader(is))) {
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
+        }
+
+        return lines;
     }
 
-    // retrieve loans from csv lines
+
     // return a map of "valid" and "malformed" lines as keys and list of BookLoan objects as values
     protected static Map<String, List<BookLoan>> parseCsvLines(final List<String> file) {
-        // Write your code here and replace the return statement
-        return Collections.emptyMap();
+
+        System.out.println(file);
+        Map<String, List<BookLoan>> map = new HashMap<>();
+
+
+        List<BookLoan> validList = file.stream()
+                .map(line -> {
+                    try {
+                        String[] parts = line.split(",");
+                        String loanId = parts[0];
+                        String memberId = parts[1];
+                        LocalDate date = LocalDate.parse(parts[2]);
+                        String bookTitle = parts[3];
+                        String genre = parts[4];
+                        String author = parts[5];
+                        Integer daysLoaned = Integer.parseInt(parts[6]);
+
+                        return new BookLoan(loanId, memberId, date, bookTitle, genre, author, daysLoaned);
+                    } catch (Exception e) {
+                        return null;
+                    }
+                })
+                .filter(Objects::nonNull)
+                .toList();
+
+        List<BookLoan> malformedList = new ArrayList<>(); // daca e malformed de ce il fac BookLoan?
+
+        map.put("valid", validList);
+        map.put("malformed", malformedList);
+        return map;
     }
 
     // count loans per genre

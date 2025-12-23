@@ -83,4 +83,17 @@ public class BookLoan {
     public void setDaysLoaned(Integer daysLoaned) {
         this.daysLoaned = daysLoaned;
     }
+
+    @Override
+    public String toString() {
+        return "BookLoan{" +
+                "loanId='" + loanId + '\'' +
+                ", memberId='" + memberId + '\'' +
+                ", loanDate=" + loanDate +
+                ", bookTitle='" + bookTitle + '\'' +
+                ", genre='" + genre + '\'' +
+                ", author='" + author + '\'' +
+                ", daysLoaned=" + daysLoaned +
+                '}';
+    }
 }

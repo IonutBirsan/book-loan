@@ -39,16 +39,16 @@ import static com.bvd.java_fundamentals.LibraryUtil.topAuthorsByLoans;
 public class LibraryAnalytics {
 
     protected static List<String> loadedFile;
+    static String FilePath = "loans/libraryLoans.csv";
 
     static {
         try {
-            loadedFile = LibraryUtil.loadResourceFile();
+            loadedFile = LibraryUtil.loadResourceFile(FilePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    ;
 
     /* The expected output of the main method is:
         Loaded 34 entries from the CSV file.
@@ -62,13 +62,15 @@ public class LibraryAnalytics {
     */
     public static void main(String[] args) {
         var loans = parseCsvLines(loadedFile);
+        List<BookLoan> loanList = loans.get("valid");
+
         System.out.println("Loaded %s entries from the CSV file.".formatted(loadedFile.size()));
-//        System.out.println("Valid loans: " + loans.get("valid").size());
-//        System.out.println("Malformed loans: " + loans.get("malformed").size());
-//        System.out.println("Loans by genre: " + loansByGenre(loans));
-//        System.out.println("Top 2 authors: " + topAuthorsByLoans(loans, 2));
-//        System.out.println("Members with genre diversity (>=3 genres): " + membersWithGenreDiversity(loans, 3));
-//        System.out.println("First book containing 'Dune': " + findFirstBookContaining(loans, "Dune"));
-//        System.out.println("Is book present: 'Harry Potter': " + isBookPresent(loans, "Harry Potter"));
+        System.out.println("Valid loans: " + loanList.size());
+        System.out.println("Malformed loans: " + loans.get("malformed").size());
+        System.out.println("Loans by genre: " + loansByGenre(loanList));
+        System.out.println("Top 2 authors: " + topAuthorsByLoans(loanList, 2));
+        System.out.println("Members with genre diversity (>=3 genres): " + membersWithGenreDiversity(loanList, 3));
+        System.out.println("First book containing 'Dune': " + findFirstBookContaining(loanList, "Dune"));
+        System.out.println("Is book present: 'Harry Potter': " + isBookPresent(loanList, "Harry Potter"));
     }
 }

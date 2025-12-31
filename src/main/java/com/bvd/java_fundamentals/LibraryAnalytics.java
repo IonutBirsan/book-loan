@@ -5,7 +5,6 @@ import java.util.List;
 
 import static com.bvd.java_fundamentals.LibraryUtil.findFirstBookContaining;
 import static com.bvd.java_fundamentals.LibraryUtil.isBookPresent;
-import static com.bvd.java_fundamentals.LibraryUtil.loadResourceFile;
 import static com.bvd.java_fundamentals.LibraryUtil.loansByGenre;
 import static com.bvd.java_fundamentals.LibraryUtil.membersWithGenreDiversity;
 import static com.bvd.java_fundamentals.LibraryUtil.parseCsvLines;
@@ -64,7 +63,7 @@ public class LibraryAnalytics {
         var loans = parseCsvLines(loadedFile);
         List<BookLoan> loanList = loans.get("valid");
 
-        System.out.println("Loaded %s entries from the CSV file.".formatted(loadedFile.size()));
+        System.out.printf("Loaded %s entries from the CSV file.%n", loadedFile.size());
         System.out.println("Valid loans: " + loanList.size());
         System.out.println("Malformed loans: " + loans.get("malformed").size());
         System.out.println("Loans by genre: " + loansByGenre(loanList));

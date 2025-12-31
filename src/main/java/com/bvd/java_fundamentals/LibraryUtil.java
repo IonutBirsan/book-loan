@@ -85,8 +85,8 @@ public class LibraryUtil {
     // return a map of "valid" and "malformed" lines as keys and list of BookLoan objects as values
     protected static Map<String, List<BookLoan>> parseCsvLines(final List<String> file) {
 
-        Map<Boolean, List<BookLoan>> separateValidAndMalformed = file.stream()
-                .map(line -> line.split(","))
+        Map<Boolean, List<BookLoan>> separateValidAndMalformed = file.stream()       //daca am peste 7 fields dar primele sunt corecte still valid?
+                .map(line -> line.split(","))                           //fielduri pot fi null -> still valid
                 .map(lineParts -> {
                     try {
                         String loanId = lineParts[0].trim();
@@ -123,7 +123,7 @@ public class LibraryUtil {
 //    }
 
     protected static Map<String, Long> loansByGenre(final List<BookLoan> loans) {
-
+// toLowerCase
         return loans.stream()
                 .collect(Collectors.groupingBy(
                         BookLoan::getGenre,

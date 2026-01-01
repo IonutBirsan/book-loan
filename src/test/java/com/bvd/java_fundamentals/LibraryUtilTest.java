@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
-import static com.bvd.java_fundamentals.LibraryUtil.parseCsvLines;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryUtilTest {
@@ -21,7 +20,7 @@ class LibraryUtilTest {
         loans = LibraryUtil.loadResourceFile("loans/libraryLoans.csv");
     }
 
-    private static BookLoan loan(String author) {
+    private static BookLoan loanWithAuthor(String author) {
         return new BookLoan(
                 "LoanId1",
                 "memberId1",
@@ -33,7 +32,19 @@ class LibraryUtilTest {
         );
     }
 
-    private static BookLoan createBookLoanWithDiffMembAndGenre(String memberId, String genre) {
+    private static BookLoan loanWithGenre(String genre) {
+        return new BookLoan(
+                "LoanId1",
+                "memberId1",
+                LocalDate.of(2026, 1, 1),
+                "Any Title",
+                genre,
+                "Any Author",
+                31
+        );
+    }
+
+    private static BookLoan loanWithMemberAndGenre(String memberId, String genre) {
         return new BookLoan(
                 "LoanId1",
                 memberId,
@@ -45,7 +56,7 @@ class LibraryUtilTest {
         );
     }
 
-    private static BookLoan createBookLoanWithDiffTitle(String title) {
+    private static BookLoan loanWithTitle(String title) {
         return new BookLoan(
                 "LoanId1",
                 "memberId1",
@@ -163,40 +174,38 @@ class LibraryUtilTest {
         }
     }
 
-
     @Nested
     class LoansByGenre {
         @Test
-        @DisplayName("Method 3 , loansByGenre -> test grouping")
-        void mapByGenre() {
+        @DisplayName("loansByGenre groups and counts loans per genre")
+        void shouldGroupAndCountByGenre() {
 
-            List<String> list = List.of("L-1005, M-002 ,2024-06-05 , Foundation , Science Fiction , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Science Fiction , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Fantasy , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Science Fiction , Isaac Asimov , 14 ");
+            List<BookLoan> loans = List.of(
+                    loanWithGenre("Science Fiction"),
+                    loanWithGenre("Science Fiction"),
+                    loanWithGenre("Fantasy"),
+                    loanWithGenre("Science Fiction")
+            );
 
-            Map<String, List<BookLoan>> resultMap = LibraryUtil.parseCsvLines(list);
+            Map<String, Long> result = LibraryUtil.loansByGenre(loans);
 
-            Map<String, Long> result = LibraryUtil.loansByGenre(resultMap.get("valid"));
+            assertEquals(2, result.size());
 
             assertEquals(1L, result.get("Fantasy"));
             assertEquals(3L, result.get("Science Fiction"));
-            assertEquals(2, result.size());
-
         }
 
         @Test
-        @DisplayName("Method 3 , loansByGenre -> test if result keys are alphabetically")
-        void testIfGenresAreSorted() {
+        @DisplayName("loansByGenre returns genres sorted alphabetically")
+        void shouldReturnGenresSortedAlphabetically() {
 
-            List<String> list = List.of("L-1005, M-002 ,2024-06-05 , Foundation , Science Fiction , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Science Fiction , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Fantasy , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Science Fiction , Isaac Asimov , 14 ");
+            List<BookLoan> loans = List.of(
+                    loanWithGenre("Science Fiction"),
+                    loanWithGenre("Fantasy"),
+                    loanWithGenre("Science Fiction")
+            );
 
-            Map<String, List<BookLoan>> resultMap = LibraryUtil.parseCsvLines(list);
-
-            Map<String, Long> result = LibraryUtil.loansByGenre(resultMap.get("valid"));
+            Map<String, Long> result = LibraryUtil.loansByGenre(loans);
 
             List<String> keys = new ArrayList<>(result.keySet());
             List<String> sorted = new ArrayList<>(keys);
@@ -206,31 +215,28 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 3 , loansByGenre -> empty input list")
-        void mapByGenreEmpty() {
+        @DisplayName("loansByGenre returns empty map for empty input")
+        void shouldReturnEmptyMapWhenInputIsEmpty() {
 
-            List<BookLoan> list = List.of();
+            Map<String, Long> result = LibraryUtil.loansByGenre(List.of());
 
-            Map<String, Long> result = LibraryUtil.loansByGenre(list);
-
-            assertNotNull(result, "Result map should not be null");
-            assertTrue(result.isEmpty(), "Result map should be empty for empty input");
-
+            assertTrue(result.isEmpty());
         }
 
         @Test
-        @DisplayName("Method 3 , loansByGenre -> test empty genre grouping")
-        void mapByEmptyGenre() {
+        @DisplayName("loansByGenre counts empty genre as a valid key")
+        void shouldCountEmptyGenreAsKey() {
 
-            List<String> list = List.of("L-1005, M-002 ,2024-06-05 , Foundation ,  , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation ,  , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Fantasy , Isaac Asimov , 14 ",
-                    "L-1005, M-002 ,2024-06-05 , Foundation , Science Fiction , Isaac Asimov , 14 ");
+            List<BookLoan> loans = List.of(
+                    loanWithGenre(""),
+                    loanWithGenre(""),
+                    loanWithGenre("Fantasy"),
+                    loanWithGenre("Science Fiction")
+            );
 
-            Map<String, List<BookLoan>> resultMap = LibraryUtil.parseCsvLines(list);
+            Map<String, Long> result = LibraryUtil.loansByGenre(loans);
 
-            Map<String, Long> result = LibraryUtil.loansByGenre(resultMap.get("valid"));
-
+            assertEquals(3, result.size());
             assertEquals(2L, result.get(""));
         }
     }
@@ -238,16 +244,16 @@ class LibraryUtilTest {
     @Nested
     class TopAuthorsByLoans {
         @Test
-        @DisplayName("Method 4 , topAuthorsByLoans -> test result size and order")
-        void testTopNAuthors() {
+        @DisplayName("topAuthorsByLoans returns top N authors ordered by loan count")
+        void shouldReturnTopNAuthorsInDescendingOrder() {
 
             List<BookLoan> loans = List.of(
-                    loan("Ionut"),
-                    loan("Ionut"),
-                    loan("Ionut"),
-                    loan("Birsan"),
-                    loan("Birsan"),
-                    loan("Isaac Asimov")
+                    loanWithAuthor("Ionut"),
+                    loanWithAuthor("Ionut"),
+                    loanWithAuthor("Ionut"),
+                    loanWithAuthor("Birsan"),
+                    loanWithAuthor("Birsan"),
+                    loanWithAuthor("Isaac Asimov")
             );
 
             List<String> result = LibraryUtil.topAuthorsByLoans(loans, 3);
@@ -260,14 +266,14 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 4 , topAuthorsByLoans -> test when n > authors.size ")
-        void testTopNAuth() {
+        @DisplayName("topAuthorsByLoans returns all authors when N exceeds total authors ")
+        void shouldReturnAllAuthorsWhenNExceedsDistinctAuthors() {
 
             List<BookLoan> loans = List.of(
-                    loan("Ionut"),
-                    loan("Ionut"),
-                    loan("Birsan"),
-                    loan("Isaac Asimov")
+                    loanWithAuthor("Ionut"),
+                    loanWithAuthor("Ionut"),
+                    loanWithAuthor("Birsan"),
+                    loanWithAuthor("Isaac Asimov")
             );
 
             List<String> result = LibraryUtil.topAuthorsByLoans(loans, 7);
@@ -277,12 +283,12 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 4 , topAuthorsByLoans -> test when n=0  returns empty list")
-        void testTopAUthWhenNisZero() {
+        @DisplayName("topAuthorsByLoans returns empty list when N is zero")
+        void shouldReturnEmptyListWhenNIsZero() {
 
             List<BookLoan> loans = List.of(
-                    loan("Ionut"),
-                    loan("Birsan")
+                    loanWithAuthor("Ionut"),
+                    loanWithAuthor("Birsan")
             );
 
             List<String> result = LibraryUtil.topAuthorsByLoans(loans, 0);
@@ -292,20 +298,20 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 4 , topAuthorsByLoans -> test when n<0")
-        void testTopAUthWhenNisNegative() {
+        @DisplayName("topAuthorsByLoans throws exception when N is negative")
+        void shouldThrowWhenNIsNegative() {
 
             List<BookLoan> loans = List.of(
-                    loan("Ionut"),
-                    loan("Birsan")
+                    loanWithAuthor("Ionut"),
+                    loanWithAuthor("Birsan")
             );
 
             assertThrows(IllegalArgumentException.class, () -> LibraryUtil.topAuthorsByLoans(loans, -5));
         }
 
         @Test
-        @DisplayName("Method 4 , topAuthorsByLoans -> test when list is empty")
-        void testTopAUthWhenListIsEmpty() {
+        @DisplayName("topAuthorsByLoans returns empty list when no loans exist")
+        void shouldReturnEmptyListWhenNoLoans() {
 
             List<BookLoan> loans = List.of();
 
@@ -318,13 +324,13 @@ class LibraryUtilTest {
     @Nested
     class MembersWithGenreDiversity {
         @Test
-        @DisplayName("Method 5 , membersWithGenreDiversity -> test members over and under k ")
-        void membersWIthGenreDiversity() {
+        @DisplayName("membersWithGenreDiversity returns members meeting genre threshold")
+        void shouldReturnMembersMeetingThreshold() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffMembAndGenre("Id1", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id2", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id1", "SF")
+                    loanWithMemberAndGenre("Id1", "fiction"),
+                    loanWithMemberAndGenre("Id2", "fiction"),
+                    loanWithMemberAndGenre("Id1", "SF")
             );
 
             List<String> result = LibraryUtil.membersWithGenreDiversity(loans, 2);
@@ -334,17 +340,16 @@ class LibraryUtilTest {
             assertEquals(1, result.size());
         }
 
-
         @Test
-        @DisplayName("Method 5 , membersWithGenreDiversity -> test members below threshold")
-        void testWithMembersUnderThreshold() {
+        @DisplayName("membersWithGenreDiversity returns empty when threshold is not met")
+        void shouldReturnEmptyWhenNoMemberMeetsThreshold() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffMembAndGenre("Id1", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id2", "love"),
-                    createBookLoanWithDiffMembAndGenre("Id2", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id3", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id1", "SF")
+                    loanWithMemberAndGenre("Id1", "fiction"),
+                    loanWithMemberAndGenre("Id2", "love"),
+                    loanWithMemberAndGenre("Id2", "fiction"),
+                    loanWithMemberAndGenre("Id3", "fiction"),
+                    loanWithMemberAndGenre("Id1", "SF")
             );
 
             List<String> result = LibraryUtil.membersWithGenreDiversity(loans, 5);
@@ -354,12 +359,12 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 5 , membersWithGenreDiversity -> test set - genre x 2 counter once")
-        void testEachGenreIsCountedOnce() {
+        @DisplayName("membersWithGenreDiversity counts each genre only once per member")
+        void shouldCountDistinctGenresOnly() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffMembAndGenre("Id1", "SF"),
-                    createBookLoanWithDiffMembAndGenre("Id1", "SF")
+                    loanWithMemberAndGenre("Id1", "SF"),
+                    loanWithMemberAndGenre("Id1", "SF")
             );
 
             List<String> result = LibraryUtil.membersWithGenreDiversity(loans, 2);
@@ -368,8 +373,8 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 5 , membersWithGenreDiversity -> test given empty list returns empty list")
-        void testEmptyList() {
+        @DisplayName("membersWithGenreDiversity returns empty list for empty input")
+        void shouldReturnEmptyWhenNoLoans() {
 
             List<BookLoan> loans = List.of();
 
@@ -379,15 +384,15 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 5 , membersWithGenreDiversity -> test when k=0 all members returned")
-        void testAllReturnWhenThresholdIsZero() {
+        @DisplayName("membersWithGenreDiversity returns all members when K is zero")
+        void shouldReturnAllMembersWhenKIsZero() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffMembAndGenre("Id1", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id2", "love"),
-                    createBookLoanWithDiffMembAndGenre("Id2", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id3", "fiction"),
-                    createBookLoanWithDiffMembAndGenre("Id1", "SF")
+                    loanWithMemberAndGenre("Id1", "fiction"),
+                    loanWithMemberAndGenre("Id2", "love"),
+                    loanWithMemberAndGenre("Id2", "fiction"),
+                    loanWithMemberAndGenre("Id3", "fiction"),
+                    loanWithMemberAndGenre("Id1", "SF")
             );
 
             List<String> result = LibraryUtil.membersWithGenreDiversity(loans, 0);
@@ -402,13 +407,13 @@ class LibraryUtilTest {
     @Nested
     class FindFirstBookContaining {
         @Test
-        @DisplayName("Method 6 , findFirstBookContaining -> test book title contains a word")
-        void checkHappyFlow() {
+        @DisplayName("findFirstBookContaining returns first matching book")
+        void shouldReturnFirstMatchingLoan() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Optional<BookLoan> result = LibraryUtil.findFirstBookContaining(loans, "Ring");
@@ -418,13 +423,13 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 6 , findFirstBookContaining -> finds no book")
-        void checkIfFindsNoBook() {
+        @DisplayName("findFirstBookContaining returns empty when no book matches")
+        void shouldReturnEmptyWhenNoMatch() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Optional<BookLoan> result = LibraryUtil.findFirstBookContaining(loans, "Fast & Furious");
@@ -433,13 +438,13 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 6 , findFirstBookContaining -> test case insensitive")
-        void checkCaseInsensitive() {
+        @DisplayName("findFirstBookContaining is case-insensitive")
+        void shouldBeCaseInsensitive() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Optional<BookLoan> result = LibraryUtil.findFirstBookContaining(loans, "hobbIT");
@@ -448,15 +453,15 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 6 , findFirstBookContaining -> test first find")
-        void checkFirstFind() {
+        @DisplayName("findFirstBookContaining returns first occurrence when multiple match")
+        void shouldReturnFirstOccurrenceWhenMultipleMatch() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter 1"),
-                    createBookLoanWithDiffTitle("Harry Potter 2"),
-                    createBookLoanWithDiffTitle("Harry Potter 3"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter 1"),
+                    loanWithTitle("Harry Potter 2"),
+                    loanWithTitle("Harry Potter 3"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Optional<BookLoan> result = LibraryUtil.findFirstBookContaining(loans, "Harry Potter");
@@ -466,29 +471,29 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 6 , findFirstBookContaining -> test search empty string")
-        void checkWhenSearchEmptyString() {
+        @DisplayName("findFirstBookContaining returns first loan when search string is empty")
+        void shouldReturnFirstLoanWhenSearchIsEmptyString() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter 1"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Optional<BookLoan> result = LibraryUtil.findFirstBookContaining(loans, "");
 
             assertTrue(result.isPresent());
-            assertEquals("Harry Potter 1", result.get().getBookTitle());
+            assertEquals("Harry Potter", result.get().getBookTitle());
         }
 
         @Test
-        @DisplayName("Method 6 , findFirstBookContaining -> test when search is null")
-        void checkWhenSearchIsNull() {
+        @DisplayName("findFirstBookContaining returns empty when search string is null")
+        void shouldReturnEmptyWhenSearchIsNull() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter 1"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter 1"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Optional<BookLoan> result = LibraryUtil.findFirstBookContaining(loans, null);
@@ -497,8 +502,8 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 6 , findFirstBookContaining -> test when list is empty")
-        void checkWhenListIsEmpty() {
+        @DisplayName("findFirstBookContaining returns empty when loan list is empty")
+        void shouldReturnEmptyWhenNoLoans() {
 
             List<BookLoan> loans = List.of();
 
@@ -511,14 +516,13 @@ class LibraryUtilTest {
     @Nested
     class IsBookPresent {
         @Test
-        @DisplayName("Method 7 , isBookPresent -> check book is present")
-        void checkIfBookIsPresent() {
-
+        @DisplayName("isBookPresent returns true when book exists")
+        void shouldReturnTrueWhenMatchExists() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Boolean result = LibraryUtil.isBookPresent(loans, "The Hobbit");
@@ -527,13 +531,13 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 7 , isBookPresent -> check case insesitive or substring")
-        void checkCaseInsesitiveAndSubString() {
+        @DisplayName("isBookPresent is case-insensitive and supports substring matching")
+        void shouldBeCaseInsensitiveAndAllowSubstringMatch() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Boolean result = LibraryUtil.isBookPresent(loans, "hobbit");
@@ -542,13 +546,13 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 7 , isBookPresent -> check book is null")
-        void checkIfBookIsNull() {
+        @DisplayName("isBookPresent returns false when search value is null")
+        void shouldReturnFalseWhenSearchIsNull() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Boolean result = LibraryUtil.isBookPresent(loans, null);
@@ -557,8 +561,8 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 7 , isBookPresent -> check empty loan list")
-        void checkEmptyLoanList() {
+        @DisplayName("isBookPresent returns false when loan list is empty")
+        void shouldReturnFalseWhenNoLoans() {
 
             List<BookLoan> loans = List.of();
 
@@ -568,13 +572,13 @@ class LibraryUtilTest {
         }
 
         @Test
-        @DisplayName("Method 7 , isBookPresent -> finds no result")
-        void checkAndCantFindTheBook() {
+        @DisplayName("isBookPresent returns false when book is not found")
+        void shouldReturnFalseWhenNoMatch() {
 
             List<BookLoan> loans = List.of(
-                    createBookLoanWithDiffTitle("Harry Potter"),
-                    createBookLoanWithDiffTitle("Lord Of The Rings"),
-                    createBookLoanWithDiffTitle("The Hobbit")
+                    loanWithTitle("Harry Potter"),
+                    loanWithTitle("Lord Of The Rings"),
+                    loanWithTitle("The Hobbit")
             );
 
             Boolean result = LibraryUtil.isBookPresent(loans, "abc");

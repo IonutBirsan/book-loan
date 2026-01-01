@@ -1,9 +1,14 @@
 package com.bvd.java_fundamentals;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -18,10 +23,11 @@ public class LibraryUtil {
     private LibraryUtil() {
     }
 
+    private static final ObjectMapper MAPPER = new ObjectMapper()
+            .registerModule(new JavaTimeModule())
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
     static List<String> loadResourceFile(String filename) throws IOException {
-
-        // filename ??
 
         InputStream is = LibraryUtil.class
                 .getClassLoader()
@@ -43,6 +49,101 @@ public class LibraryUtil {
         }
 
         return lines;
+    }
+
+    static String loadLocalJson(String filename) throws IOException {
+
+        InputStream is = LibraryUtil.class
+                .getClassLoader()
+                .getResourceAsStream(filename);
+
+        if (is == null) {
+            throw new RuntimeException("Json not found: " + filename);
+        }
+
+        try (is) {
+            return new String(is.readAllBytes(), StandardCharsets.UTF_8);
+        }
+    }
+
+    static Map<String, List<BookLoan>> parseJsonLoans(String json) {
+
+        final List<String> jsonLines;
+        try {
+            jsonLines = MAPPER.readValue(json,
+                    new com.fasterxml.jackson.core.type.TypeReference<List<String>>() {
+                    }
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("Invalid Json", e);
+        }
+
+        List<BookLoan> valid = new ArrayList<>();
+        List<BookLoan> malformed = new ArrayList<>();
+
+        for (String insideJson : jsonLines) {
+            try {
+                BookLoanJsonDto dto = MAPPER.readValue(insideJson, BookLoanJsonDto.class);
+
+                BookLoan loan = toBookLoanIfValid(dto);
+                if (loan != null) {
+                    valid.add(loan);
+                } else {
+                    malformed.add(malformedFromDto(dto));
+                }
+            } catch (Exception e) {
+                malformed.add(new BookLoan("MALFORMED", "", LocalDate.now(), "", "", "", 0));
+            }
+        }
+        return Map.of("valid", valid, "malformed", malformed);
+    }
+
+    private static BookLoan toBookLoanIfValid(BookLoanJsonDto dto) {
+
+        if (dto == null) {
+            return null;
+        }
+
+        String loanId = trim(dto.loanId);
+        String memberId = trim(dto.memberId);
+        String loanDateStr = trim(dto.loanDate);
+        String bookTitle = trim(dto.bookTitle);
+        String genre = trim(dto.genre);
+        String author = trim(dto.author);
+        String daysLoanedStr = trim(dto.daysLoaned);
+
+        if (isBlank(loanId) ||
+                isBlank(memberId) ||
+                isBlank(loanDateStr) ||
+                isBlank(bookTitle) ||
+                isBlank(genre) ||
+                isBlank(author) ||
+                isBlank(daysLoanedStr)) {
+            return null;
+        }
+
+        try {
+            LocalDate loanDate = LocalDate.parse(loanDateStr);
+            int daysLoaned = Integer.parseInt(daysLoanedStr);
+            if (daysLoaned < 0) return null;
+
+            return new BookLoan(loanId, memberId, loanDate, bookTitle, genre, author, daysLoaned);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private static BookLoan malformedFromDto(BookLoanJsonDto dto) {
+        String loanId = (dto == null ? null : dto.loanId).trim();
+        return new BookLoan(loanId.isBlank() ? "MALFORMED" : loanId, "", LocalDate.now(), "", "", "", 0);
+    }
+
+    private static String trim(String s) {
+        return s == null ? null : s.trim();
+    }
+
+    private static boolean isBlank(String s) {
+        return s == null || s.trim().isEmpty();
     }
 
 
@@ -184,6 +285,17 @@ public class LibraryUtil {
         }
 
         return loans.stream()
-                .anyMatch(x-> x.getBookTitle().toLowerCase().contains(book.toLowerCase()));
+                .anyMatch(x -> x.getBookTitle().toLowerCase().contains(book.toLowerCase()));
     }
+
+    static class BookLoanJsonDto {
+        public String loanId;
+        public String memberId;
+        public String loanDate;
+        public String bookTitle;
+        public String genre;
+        public String author;
+        public String daysLoaned;
+    }
+
 }

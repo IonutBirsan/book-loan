@@ -38,11 +38,16 @@ import static com.bvd.java_fundamentals.LibraryUtil.topAuthorsByLoans;
 public class LibraryAnalytics {
 
     protected static List<String> loadedFile;
+    protected static String loadedJson;
+
     static String FilePath = "loans/libraryLoans.csv";
+    static String jsonFilePath = "loans/libraryLoans.json";
+
 
     static {
         try {
             loadedFile = LibraryUtil.loadResourceFile(FilePath);
+            loadedJson = LibraryUtil.loadLocalJson(jsonFilePath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -60,12 +65,17 @@ public class LibraryAnalytics {
         Is book present: 'Harry Potter': false
     */
     public static void main(String[] args) {
-        var loans = parseCsvLines(loadedFile);
-        List<BookLoan> loanList = loans.get("valid");
+
+        var csv = parseCsvLines(loadedFile);
+        var json = LibraryUtil.parseJsonLoans(loadedJson);
+
+        List<BookLoan> loanList = new java.util.ArrayList<>();
+        loanList.addAll(csv.get("valid"));
+        loanList.addAll(json.get("valid"));
 
         System.out.printf("Loaded %s entries from the CSV file.%n", loadedFile.size());
         System.out.println("Valid loans: " + loanList.size());
-        System.out.println("Malformed loans: " + loans.get("malformed").size());
+        System.out.println("Malformed loans: " + csv.get("malformed").size());
         System.out.println("Loans by genre: " + loansByGenre(loanList));
         System.out.println("Top 2 authors: " + topAuthorsByLoans(loanList, 2));
         System.out.println("Members with genre diversity (>=3 genres): " + membersWithGenreDiversity(loanList, 3));

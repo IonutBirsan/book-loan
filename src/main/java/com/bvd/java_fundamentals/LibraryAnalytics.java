@@ -43,7 +43,6 @@ public class LibraryAnalytics {
     static String FilePath = "loans/libraryLoans.csv";
     static String jsonFilePath = "loans/libraryLoans.json";
 
-
     static {
         try {
             loadedFile = LibraryUtil.loadResourceFile(FilePath);
@@ -52,7 +51,6 @@ public class LibraryAnalytics {
             throw new RuntimeException(e);
         }
     }
-
 
     /* The expected output of the main method is:
         Loaded 34 entries from the CSV file.

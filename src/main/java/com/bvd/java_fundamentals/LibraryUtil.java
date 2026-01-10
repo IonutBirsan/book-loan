@@ -78,72 +78,45 @@ public class LibraryUtil {
             throw new RuntimeException("Invalid Json", e);
         }
 
-        List<BookLoan> valid = new ArrayList<>();
-        List<BookLoan> malformed = new ArrayList<>();
+        Map<Boolean, List<BookLoan>> partitioned = jsonLines.stream()
+                .map(LibraryUtil::parseJsonLineOrNull)
+                .collect(Collectors.partitioningBy(Objects::nonNull));
 
-        for (String insideJson : jsonLines) {
-            try {
-                BookLoanJsonDto dto = MAPPER.readValue(insideJson, BookLoanJsonDto.class);
-
-                BookLoan loan = toBookLoanIfValid(dto);
-                if (loan != null) {
-                    valid.add(loan);
-                } else {
-                    malformed.add(malformedFromDto(dto));
-                }
-            } catch (Exception e) {
-                malformed.add(new BookLoan("MALFORMED", "", LocalDate.now(), "", "", "", 0));
-            }
-        }
-        return Map.of("valid", valid, "malformed", malformed);
+        return Map.of("valid", partitioned.get(true),
+                "malformed", partitioned.get(false)
+        );
     }
 
-    private static BookLoan toBookLoanIfValid(BookLoanJsonDto dto) {
-
-        if (dto == null) {
-            return null;
-        }
-
-        String loanId = trim(dto.loanId);
-        String memberId = trim(dto.memberId);
-        String loanDateStr = trim(dto.loanDate);
-        String bookTitle = trim(dto.bookTitle);
-        String genre = trim(dto.genre);
-        String author = trim(dto.author);
-        String daysLoanedStr = trim(dto.daysLoaned);
-
-        if (isBlank(loanId) ||
-                isBlank(memberId) ||
-                isBlank(loanDateStr) ||
-                isBlank(bookTitle) ||
-                isBlank(genre) ||
-                isBlank(author) ||
-                isBlank(daysLoanedStr)) {
-            return null;
-        }
-
+    private static BookLoan parseJsonLineOrNull(String insideJson) {
         try {
-            LocalDate loanDate = LocalDate.parse(loanDateStr);
-            int daysLoaned = Integer.parseInt(daysLoanedStr);
-            if (daysLoaned < 0) return null;
+            Map<String, Object> node = MAPPER.readValue(insideJson, Map.class);
 
-            return new BookLoan(loanId, memberId, loanDate, bookTitle, genre, author, daysLoaned);
+            String loanId = node.get("loanId").toString().trim();
+            String memberId = node.get("memberId").toString().trim();
+            LocalDate loanDate = LocalDate.parse(node.get("loanDate").toString().trim());
+            String bookTitle = node.get("bookTitle").toString().trim();
+            String genre = node.get("genre").toString().trim();
+            String author = node.get("author").toString().trim();
+            int daysLoaned = Integer.parseInt(node.get("daysLoaned").toString().trim());
+
+            if (loanId.isBlank() || memberId.isBlank() || bookTitle.isBlank()
+                    || genre.isBlank() || author.isBlank() || daysLoaned < 0) {
+                return null;
+            }
+
+            return new BookLoan(
+                    loanId,
+                    memberId,
+                    loanDate,
+                    bookTitle,
+                    genre,
+                    author,
+                    daysLoaned
+            );
+
         } catch (Exception e) {
             return null;
         }
-    }
-
-    private static BookLoan malformedFromDto(BookLoanJsonDto dto) {
-        String loanId = (dto == null ? null : dto.loanId).trim();
-        return new BookLoan(loanId.isBlank() ? "MALFORMED" : loanId, "", LocalDate.now(), "", "", "", 0);
-    }
-
-    private static String trim(String s) {
-        return s == null ? null : s.trim();
-    }
-
-    private static boolean isBlank(String s) {
-        return s == null || s.trim().isEmpty();
     }
 
 
@@ -286,16 +259,6 @@ public class LibraryUtil {
 
         return loans.stream()
                 .anyMatch(x -> x.getBookTitle().toLowerCase().contains(book.toLowerCase()));
-    }
-
-    static class BookLoanJsonDto {
-        public String loanId;
-        public String memberId;
-        public String loanDate;
-        public String bookTitle;
-        public String genre;
-        public String author;
-        public String daysLoaned;
     }
 
 }

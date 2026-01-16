@@ -1,7 +1,9 @@
 package com.bvd.java_fundamentals;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
 
 import static com.bvd.java_fundamentals.LibraryUtil.findFirstBookContaining;
 import static com.bvd.java_fundamentals.LibraryUtil.isBookPresent;
@@ -67,7 +69,7 @@ public class LibraryAnalytics {
         var csv = parseCsvLines(loadedFile);
         var json = LibraryUtil.parseJsonLoans(loadedJson);
 
-        List<BookLoan> loanList = new java.util.ArrayList<>();
+        List<BookLoan> loanList = new ArrayList<>();
         loanList.addAll(csv.get("valid"));
         loanList.addAll(json.get("valid"));
 

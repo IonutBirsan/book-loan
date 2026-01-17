@@ -1,16 +1,13 @@
 package com.bvd.java_fundamentals;
 
+import com.bvd.java_fundamentals.model.BookLoan;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.bvd.java_fundamentals.LibraryUtil.*;
 
-import static com.bvd.java_fundamentals.LibraryUtil.findFirstBookContaining;
-import static com.bvd.java_fundamentals.LibraryUtil.isBookPresent;
-import static com.bvd.java_fundamentals.LibraryUtil.loansByGenre;
-import static com.bvd.java_fundamentals.LibraryUtil.membersWithGenreDiversity;
-import static com.bvd.java_fundamentals.LibraryUtil.parseCsvLines;
-import static com.bvd.java_fundamentals.LibraryUtil.topAuthorsByLoans;
 
 /*
  * The scenario is a library system managing book loans.

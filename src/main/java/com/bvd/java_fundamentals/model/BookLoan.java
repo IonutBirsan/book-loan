@@ -1,4 +1,4 @@
-package com.bvd.java_fundamentals;
+package com.bvd.java_fundamentals.model;
 
 import java.time.LocalDate;
 

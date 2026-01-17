@@ -1,5 +1,6 @@
 package com.bvd.java_fundamentals;
 
+import com.bvd.java_fundamentals.model.BookLoan;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -27,7 +28,7 @@ public class LibraryUtil {
             .registerModule(new JavaTimeModule())
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    static List<String> loadResourceFile(String filename) throws IOException {
+    public static List<String> loadResourceFile(String filename) throws IOException {
 
         InputStream is = LibraryUtil.class
                 .getClassLoader()
@@ -51,7 +52,7 @@ public class LibraryUtil {
         return lines;
     }
 
-    static String loadLocalJson(String filename) throws IOException {
+    public static String loadLocalJson(String filename) throws IOException {
 
         InputStream is = LibraryUtil.class
                 .getClassLoader()
@@ -66,7 +67,7 @@ public class LibraryUtil {
         }
     }
 
-    static Map<String, List<BookLoan>> parseJsonLoans(String json) {
+    public static Map<String, List<BookLoan>> parseJsonLoans(String json) {
 
         final List<String> jsonLines;
         try {
@@ -87,7 +88,7 @@ public class LibraryUtil {
         );
     }
 
-    private static BookLoan parseJsonLineOrNull(String insideJson) {
+    public static BookLoan parseJsonLineOrNull(String insideJson) {
         try {
             Map<String, Object> node = MAPPER.readValue(insideJson, Map.class);
 
@@ -157,7 +158,7 @@ public class LibraryUtil {
 //    }
 
     // return a map of "valid" and "malformed" lines as keys and list of BookLoan objects as values
-    protected static Map<String, List<BookLoan>> parseCsvLines(final List<String> file) {
+    public static Map<String, List<BookLoan>> parseCsvLines(final List<String> file) {
 
         Map<Boolean, List<BookLoan>> separateValidAndMalformed = file.stream()
                 .map(line -> line.split(","))
@@ -196,7 +197,7 @@ public class LibraryUtil {
 //        return Collections.emptyMap();
 //    }
 
-    protected static Map<String, Long> loansByGenre(final List<BookLoan> loans) {
+    static Map<String, Long> loansByGenre(final List<BookLoan> loans) {
 
         return loans.stream()
                 .collect(Collectors.groupingBy(
@@ -206,7 +207,7 @@ public class LibraryUtil {
     }
 
     // get top "n" authors by number of loans
-    protected static List<String> topAuthorsByLoans(final List<BookLoan> loans, final int n) {
+    static List<String> topAuthorsByLoans(final List<BookLoan> loans, final int n) {
 
         Map<String, Long> authorLoans = loans.stream()
                 .collect(Collectors.groupingBy(
@@ -221,7 +222,7 @@ public class LibraryUtil {
     }
 
     // get members who borrowed books from at least K genres
-    protected static List<String> membersWithGenreDiversity(final List<BookLoan> loans, final int k) {
+    static List<String> membersWithGenreDiversity(final List<BookLoan> loans, final int k) {
 
         Map<String, Set<String>> memberGenres = loans.stream()
                 .collect(Collectors.groupingBy(
@@ -239,7 +240,7 @@ public class LibraryUtil {
     }
 
     // find the first book title containing a substring (case-insensitive)
-    protected static Optional<BookLoan> findFirstBookContaining(final List<BookLoan> loans, final String book) {
+    static Optional<BookLoan> findFirstBookContaining(final List<BookLoan> loans, final String book) {
 
         if (book == null) {
             return Optional.empty();
@@ -251,7 +252,7 @@ public class LibraryUtil {
     }
 
     // checks if the book is present in the loans (case-insensitive)
-    protected static Boolean isBookPresent(final List<BookLoan> loans, final String book) {
+    static Boolean isBookPresent(final List<BookLoan> loans, final String book) {
 
         if (book == null) {
             return false;

@@ -1,5 +1,6 @@
 package com.bvd.java_fundamentals;
 
+import com.bvd.java_fundamentals.model.BookLoan;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;

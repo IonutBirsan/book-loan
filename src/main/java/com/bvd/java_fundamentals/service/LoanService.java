@@ -15,6 +15,12 @@ public class LoanService {
     private static final String CSV_PATH = "loans/libraryLoans.csv";
     private static final String JSON_PATH = "loans/libraryLoans.json";
 
+    private final BookLoanProducer producer;
+
+    public LoanService(BookLoanProducer producer) {
+        this.producer = producer;
+    }
+
     public List<BookLoan> loadAllLoans() {
         try {
             // Load raw data from resources
@@ -36,4 +42,11 @@ public class LoanService {
             throw new RuntimeException("Failed to load loans from resources", e);
         }
     }
+
+    public int publishAllLoans() {
+        List<BookLoan> loans = loadAllLoans();
+        loans.forEach(producer::send);
+        return loans.size();
+    }
+
 }

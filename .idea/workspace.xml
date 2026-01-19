@@ -5,44 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed35b723-b443-4b18-b867-915fcc94c227" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/book loan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/book loan.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/src/main/java/com/bvd/java_fundamentals/consumer/BookLoanConsumerApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-consumer/src/test/java/com/bvd/java_fundamentals/consumer/BookLoanConsumerApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.ask.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/BookLoanServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/LibraryAnalytics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/LibraryUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/controller/BookLoanController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/model/BookLoan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/service/BookLoanProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/service/LoanService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/resources/loans/libraryLoans.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/resources/loans/libraryLoans.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-loan-service/src/test/java/com/bvd/java_fundamentals/LibraryUtilTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +244,7 @@
       <workItem from="1768688747972" duration="398000" />
       <workItem from="1768697896801" duration="212000" />
       <workItem from="1768698124531" duration="15000" />
-      <workItem from="1768808891402" duration="3764000" />
+      <workItem from="1768808891402" duration="12560000" />
     </task>
     <servers />
   </component>

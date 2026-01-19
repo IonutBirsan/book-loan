@@ -1,63 +1,258 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f77ef42c-85df-42ff-952d-25b2ea91c6ce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/book loan.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+    <list default="true" id="ed35b723-b443-4b18-b867-915fcc94c227" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/book loan.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/book loan.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/BookLoanServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/LibraryAnalytics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/LibraryUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/controller/BookLoanController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/model/BookLoan.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/service/BookLoanProducer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/service/LoanService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/loans/libraryLoans.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/loans/libraryLoans.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/bvd/java_fundamentals/LibraryUtilTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/src/main/java/com/bvd/java_fundamentals/consumer/BookLoanConsumerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-consumer/src/test/java/com/bvd/java_fundamentals/consumer/BookLoanConsumerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.ask.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/BookLoanServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/LibraryAnalytics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/LibraryUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/controller/BookLoanController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/model/BookLoan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/service/BookLoanProducer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/java/com/bvd/java_fundamentals/service/LoanService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/resources/loans/libraryLoans.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/main/resources/loans/libraryLoans.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-loan-service/src/test/java/com/bvd/java_fundamentals/LibraryUtilTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
-  <component name="ProjectId" id="38P7QuCopfX4kyU4jL4ZjjeVVwP" />
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="35ORr12qLTTy4AWK8MGUnkvCFga" />
   <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "kafka",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ibirsan/Documents/book loan",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BookLoanServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LibraryAnalytics.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StoreAnalytics.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in store-analytics.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$FindFirstBookContaining.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$IsBookPresent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$LoadResourceFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$LoansByGenre.shouldCountEmptyGenreAsKey.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$ParseCsvLines.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.aaaa.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkAndDontFindTheBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkCaseInsensitive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkCaseInsesitiveAndSubString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkEmptyLoanList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkFirstFind.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkHappyFlow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkIfBookIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkIfBookIsPresent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkIfFindsNoBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkMalformedRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkMalformedRowAndValidROw.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkParsingAListOfOneValidRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkWhenListIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkWhenSearchEmptyString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkWhenSearchIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LibraryUtilTest.mapByGenre.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.mapByGenreEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.mapByNullGenre.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.membersWIthGenreDiversity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.returnMapWithMalformedAndValid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.returnMapWithTrueAndFalse.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LibraryUtilTest.returnNoExceptionWIthEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testAllReturnWhenThresholdIsZero.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testEachGenreIsCountedOnce.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testIfGenresAreSorted.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testLoadResourceFile_returnsFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopAUthWhenListIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopAUthWhenNisNegative.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopAUthWhenNisZero.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopNAuth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopNAuthors.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testWithMembersUnderThreshold.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.throwExceptionWhenFileIsMissing.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.topMembersWIthGenreDiversity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testInputValidation (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testInputValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testMalformedValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testParseCsvLines_doesNotThrowError.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testParseCsvLines_validAndMalformed (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testParseCsvLines_validAndMalformed.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.OrderUtilTest.testRevenueByDay.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.java in store-analytics.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.book-loan [clean].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BookLoanServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kafka&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ibirsan/Documents/book-loan-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/lc5660185/Workspace/a4e/mono/store-analytics/src/main/java/com/bvd/java_fundamentals/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/loans" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.bvd.java_fundamentals" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BookLoanServiceApplication">
+    <configuration name="BookLoanServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bvd.java_fundamentals.BookLoanServiceApplication" />
+      <module name="book-loan-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bvd.java_fundamentals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryAnalytics" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bvd.java_fundamentals.LibraryAnalytics" />
+      <module name="book-loan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bvd.java_fundamentals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryUtilTest$IsBookPresent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-loan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bvd.java_fundamentals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bvd.java_fundamentals.LibraryUtilTest" />
+      <option name="MAIN_CLASS_NAME" value="com.bvd.java_fundamentals.LibraryUtilTest$IsBookPresent" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LibraryUtilTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="book-loan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bvd.java_fundamentals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.bvd.java_fundamentals" />
+      <option name="MAIN_CLASS_NAME" value="com.bvd.java_fundamentals.LibraryUtilTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookLoanServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="book-loan-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.bvd.java_fundamentals.BookLoanServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bvd.java_fundamentals.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.BookLoanServiceApplication" />
+        <item itemvalue="Application.BookLoanServiceApplication" />
+        <item itemvalue="Application.LibraryAnalytics" />
+        <item itemvalue="JUnit.LibraryUtilTest" />
+        <item itemvalue="JUnit.LibraryUtilTest$IsBookPresent" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,16 +263,45 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f77ef42c-85df-42ff-952d-25b2ea91c6ce" name="Changes" comment="" />
-      <created>1768689340764</created>
+      <changelist id="ed35b723-b443-4b18-b867-915fcc94c227" name="Changes" comment="" />
+      <created>1762979327041</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1768689340764</updated>
-      <workItem from="1768689342433" duration="578000" />
+      <updated>1762979327041</updated>
+      <workItem from="1762979328301" duration="17881000" />
+      <workItem from="1763026575338" duration="3766000" />
+      <workItem from="1763030533102" duration="259000" />
+      <workItem from="1765122817880" duration="5907000" />
+      <workItem from="1765130007597" duration="242000" />
+      <workItem from="1765130283875" duration="55000" />
+      <workItem from="1765177978114" duration="1495000" />
+      <workItem from="1768688747972" duration="398000" />
+      <workItem from="1768697896801" duration="212000" />
+      <workItem from="1768698124531" duration="15000" />
+      <workItem from="1768808891402" duration="3764000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

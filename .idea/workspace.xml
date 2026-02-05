@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed35b723-b443-4b18-b867-915fcc94c227" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/controller/BookLoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/controller/BookLoanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/service/BookLoanProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/service/BookLoanProducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/service/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bvd/java_fundamentals/service/LoanService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,98 +37,101 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="35ORr12qLTTy4AWK8MGUnkvCFga" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BookLoanServiceApplication.executor": "Run",
-    "Application.LibraryAnalytics.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.StoreAnalytics.executor": "Run",
-    "JUnit.All in store-analytics.executor": "Run",
-    "JUnit.LibraryUtilTest$FindFirstBookContaining.executor": "Run",
-    "JUnit.LibraryUtilTest$IsBookPresent.executor": "Run",
-    "JUnit.LibraryUtilTest$LoadResourceFile.executor": "Run",
-    "JUnit.LibraryUtilTest$LoansByGenre.shouldCountEmptyGenreAsKey.executor": "Run",
-    "JUnit.LibraryUtilTest$ParseCsvLines.executor": "Run",
-    "JUnit.LibraryUtilTest.aaaa.executor": "Run",
-    "JUnit.LibraryUtilTest.checkAndDontFindTheBook.executor": "Run",
-    "JUnit.LibraryUtilTest.checkCaseInsensitive.executor": "Run",
-    "JUnit.LibraryUtilTest.checkCaseInsesitiveAndSubString.executor": "Run",
-    "JUnit.LibraryUtilTest.checkEmptyLoanList.executor": "Run",
-    "JUnit.LibraryUtilTest.checkFirstFind.executor": "Run",
-    "JUnit.LibraryUtilTest.checkHappyFlow.executor": "Run",
-    "JUnit.LibraryUtilTest.checkIfBookIsNull.executor": "Run",
-    "JUnit.LibraryUtilTest.checkIfBookIsPresent.executor": "Run",
-    "JUnit.LibraryUtilTest.checkIfFindsNoBook.executor": "Run",
-    "JUnit.LibraryUtilTest.checkMalformedRow.executor": "Run",
-    "JUnit.LibraryUtilTest.checkMalformedRowAndValidROw.executor": "Run",
-    "JUnit.LibraryUtilTest.checkParsingAListOfOneValidRow.executor": "Run",
-    "JUnit.LibraryUtilTest.checkWhenListIsEmpty.executor": "Run",
-    "JUnit.LibraryUtilTest.checkWhenSearchEmptyString.executor": "Run",
-    "JUnit.LibraryUtilTest.checkWhenSearchIsNull.executor": "Run",
-    "JUnit.LibraryUtilTest.executor": "Debug",
-    "JUnit.LibraryUtilTest.mapByGenre.executor": "Run",
-    "JUnit.LibraryUtilTest.mapByGenreEmpty.executor": "Run",
-    "JUnit.LibraryUtilTest.mapByNullGenre.executor": "Run",
-    "JUnit.LibraryUtilTest.membersWIthGenreDiversity.executor": "Run",
-    "JUnit.LibraryUtilTest.returnMapWithMalformedAndValid.executor": "Run",
-    "JUnit.LibraryUtilTest.returnMapWithTrueAndFalse.executor": "Debug",
-    "JUnit.LibraryUtilTest.returnNoExceptionWIthEmptyList.executor": "Run",
-    "JUnit.LibraryUtilTest.testAllReturnWhenThresholdIsZero.executor": "Run",
-    "JUnit.LibraryUtilTest.testEachGenreIsCountedOnce.executor": "Run",
-    "JUnit.LibraryUtilTest.testEmptyList.executor": "Run",
-    "JUnit.LibraryUtilTest.testIfGenresAreSorted.executor": "Run",
-    "JUnit.LibraryUtilTest.testLoadResourceFile_returnsFile.executor": "Run",
-    "JUnit.LibraryUtilTest.testTopAUthWhenListIsEmpty.executor": "Run",
-    "JUnit.LibraryUtilTest.testTopAUthWhenNisNegative.executor": "Run",
-    "JUnit.LibraryUtilTest.testTopAUthWhenNisZero.executor": "Run",
-    "JUnit.LibraryUtilTest.testTopNAuth.executor": "Run",
-    "JUnit.LibraryUtilTest.testTopNAuthors.executor": "Run",
-    "JUnit.LibraryUtilTest.testWithMembersUnderThreshold.executor": "Run",
-    "JUnit.LibraryUtilTest.throwExceptionWhenFileIsMissing.executor": "Run",
-    "JUnit.LibraryUtilTest.topMembersWIthGenreDiversity.executor": "Run",
-    "JUnit.OrderUtilTest.executor": "Run",
-    "JUnit.OrderUtilTest.testInputValidation (1).executor": "Run",
-    "JUnit.OrderUtilTest.testInputValidation.executor": "Run",
-    "JUnit.OrderUtilTest.testMalformedValidation.executor": "Run",
-    "JUnit.OrderUtilTest.testParseCsvLines_doesNotThrowError.executor": "Run",
-    "JUnit.OrderUtilTest.testParseCsvLines_validAndMalformed (1).executor": "Run",
-    "JUnit.OrderUtilTest.testParseCsvLines_validAndMalformed.executor": "Debug",
-    "JUnit.OrderUtilTest.testRevenueByDay.executor": "Debug",
-    "JUnit.java in store-analytics.executor": "Run",
-    "Maven.book-loan [clean].executor": "Run",
-    "Maven.book-loan-service [clean,package].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.BookLoanServiceApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "kafka",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ibirsan/Documents/book-loan-service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/lc5660185/Workspace/a4e/mono/store-analytics/src/main/java/com/bvd/java_fundamentals/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BookLoanServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LibraryAnalytics.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.StoreAnalytics.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in store-analytics.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$FindFirstBookContaining.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$IsBookPresent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$LoadResourceFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$LoansByGenre.shouldCountEmptyGenreAsKey.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest$ParseCsvLines.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.aaaa.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkAndDontFindTheBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkCaseInsensitive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkCaseInsesitiveAndSubString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkEmptyLoanList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkFirstFind.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkHappyFlow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkIfBookIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkIfBookIsPresent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkIfFindsNoBook.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkMalformedRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkMalformedRowAndValidROw.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkParsingAListOfOneValidRow.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkWhenListIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkWhenSearchEmptyString.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.checkWhenSearchIsNull.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LibraryUtilTest.mapByGenre.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.mapByGenreEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.mapByNullGenre.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.membersWIthGenreDiversity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.returnMapWithMalformedAndValid.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.returnMapWithTrueAndFalse.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.LibraryUtilTest.returnNoExceptionWIthEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testAllReturnWhenThresholdIsZero.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testEachGenreIsCountedOnce.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testEmptyList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testIfGenresAreSorted.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testLoadResourceFile_returnsFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopAUthWhenListIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopAUthWhenNisNegative.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopAUthWhenNisZero.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopNAuth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testTopNAuthors.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.testWithMembersUnderThreshold.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.throwExceptionWhenFileIsMissing.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LibraryUtilTest.topMembersWIthGenreDiversity.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testInputValidation (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testInputValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testMalformedValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testParseCsvLines_doesNotThrowError.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testParseCsvLines_validAndMalformed (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderUtilTest.testParseCsvLines_validAndMalformed.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.OrderUtilTest.testRevenueByDay.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.java in store-analytics.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.book-loan [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.book-loan-service [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BookLoanServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kafka&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ibirsan/Documents/book-loan-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/lc5660185/Workspace/a4e/mono/store-analytics/src/main/java/com/bvd/java_fundamentals/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/loans" />
@@ -202,6 +203,7 @@
     <configuration name="BookLoanServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="book-loan-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bvd.java_fundamentals.BookLoanServiceApplication" />
+      <option name="VM_PARAMETERS" value="-javaagent:agent/opentelemetry-javaagent.jar -Dotel.service.name=book-loan-consumer -Dotel.traces.exporter=otlp -Dotel.exporter.otlp.endpoint=http://localhost:4318 -Dotel.metrics.exporter=none -Dotel.logs.exporter=none -Dotel.instrumentation.logback-mdc.enabled=true " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.bvd.java_fundamentals.*" />
@@ -212,6 +214,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.BookLoanServiceApplication" />
+      <item itemvalue="Application.LibraryAnalytics" />
+      <item itemvalue="JUnit.LibraryUtilTest" />
+      <item itemvalue="JUnit.LibraryUtilTest$IsBookPresent" />
+      <item itemvalue="Spring Boot.BookLoanServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.BookLoanServiceApplication" />
@@ -248,6 +257,7 @@
       <workItem from="1768697896801" duration="212000" />
       <workItem from="1768698124531" duration="15000" />
       <workItem from="1768808891402" duration="12560000" />
+      <workItem from="1770276250532" duration="8087000" />
     </task>
     <servers />
   </component>
